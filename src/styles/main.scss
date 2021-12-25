@@ -1,9 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "./colors";
+@import "./nav";
 @import "./type";
 
+* {
+  box-sizing: border-box;
+}
+
+#app {
+  background-color: $bg_light;
+  height: 100vh;
+}
+
 body {
-  @apply bg-bg_light;
+  margin: 0;
 }
