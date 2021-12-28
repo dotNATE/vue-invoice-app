@@ -1,0 +1,14 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  & .__header {
+    margin-bottom: 0;
+  }
+
+  & .__sub-header {
+    color: #888eb0;
+  }
+}

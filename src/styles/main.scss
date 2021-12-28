@@ -1,4 +1,6 @@
 @import "./colors";
+@import "./header";
+@import "./main";
 @import "./nav";
 @import "./type";
 
@@ -7,10 +9,18 @@
 }
 
 #app {
+  display: flex;
+  flex-direction: column;
   background-color: $bg_light;
   height: 100vh;
 }
 
 body {
   margin: 0;
+}
+
+@media screen and (min-width: 1280px) {
+  #app {
+    flex-direction: row;
+  }
 }

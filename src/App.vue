@@ -1,5 +1,5 @@
 <template>
-  <div id="nav">
+  <nav id="nav">
     <router-link to="/">
       <div id="home">
         <img src="@/assets/logo.svg" alt="logo" />
@@ -14,19 +14,6 @@
         <img src="@/assets/image-avatar.jpg" alt="profile picture" />
       </div>
     </div>
-  </div>
+  </nav>
   <router-view />
 </template>
-
-<style lang="scss">
-#app {
-  display: flex;
-  flex-direction: column;
-}
-
-@media screen and (min-width: 1280px) {
-  #app {
-    flex-direction: row;
-  }
-}
-</style>

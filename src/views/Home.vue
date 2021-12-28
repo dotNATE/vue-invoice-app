@@ -1,14 +1,20 @@
 <template>
   <main>
-    <div>
-      <h1>Invoices</h1>
-    </div>
+    <header>
+      <div>
+        <h1 class="__header">Invoices</h1>
+        <p class="__sub-header">There are {{ numOfInvoices }} invoices</p>
+      </div>
+      <Button label="New Invoice" />
+    </header>
   </main>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
+
+import Button from "@/components/buttons/Button.vue";
 
 export default defineComponent({
   name: "Home",
@@ -16,18 +22,17 @@ export default defineComponent({
     const store = useStore();
 
     store.dispatch("fetchInvoices");
+
+    const numOfInvoices = computed(() => {
+      return store.state.invoices.length;
+    });
+
+    return {
+      numOfInvoices,
+    };
+  },
+  components: {
+    Button,
   },
 });
 </script>
-
-<style lang="scss">
-main {
-  padding: 24px;
-}
-
-@media screen and (min-width: 768px) {
-  main {
-    padding: 48px;
-  }
-}
-</style>
