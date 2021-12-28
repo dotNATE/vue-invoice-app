@@ -17,3 +17,11 @@
   </nav>
   <router-view />
 </template>
+
+<script setup lang="ts">
+import { useStore } from "vuex";
+
+const store = useStore();
+
+store.dispatch("fetchInvoices");
+</script>
