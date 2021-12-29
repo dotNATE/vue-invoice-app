@@ -1,0 +1,21 @@
+.invoice-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  border-radius: 8px;
+
+  &--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 341px;
+    margin: 0 auto;
+
+    & p {
+      color: #888eb0;
+    }
+  }
+}

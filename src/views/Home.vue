@@ -7,20 +7,20 @@
           {{
             numOfInvoices
               ? `There are ${numOfInvoices} invoices`
-              : "There are no invoices"
+              : "No invoices"
           }}
         </p>
       </div>
       <Button label="New Invoice" :icon="true" />
     </header>
-    <section v-if="numOfInvoices">
+    <section v-if="numOfInvoices" class="invoice-container">
       <Invoice
         v-for="invoice in invoices"
         :invoice="invoice"
         :key="invoice.id"
       />
     </section>
-    <div class="empty" v-else>
+    <div class="invoice-container--empty" v-else>
       <img src="@/assets/illustration-empty.svg" alt="no invoices" />
       <h2>There is nothing here</h2>
       <div>
@@ -62,31 +62,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped lang="scss">
-section {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-
-  border-radius: 8px;
-}
-
-.empty {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  width: 341px;
-  margin: 0 auto;
-
-  & p {
-    color: #888eb0;
-  }
-}
-
-.bold {
-  font-weight: 700;
-}
-</style>

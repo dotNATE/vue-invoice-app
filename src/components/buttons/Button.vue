@@ -13,7 +13,7 @@ withDefaults(defineProps<ButtonProps>(), {
 
 <template>
   <div>
-    <button>
+    <button class="btn">
       <div v-if="icon" class="__icon">
         <svg viewBox="-8 -8 26 26" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -29,47 +29,3 @@ withDefaults(defineProps<ButtonProps>(), {
     </button>
   </div>
 </template>
-
-<style lang="scss">
-button {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #7c5dfa;
-  color: white;
-  border-radius: 9999px;
-  border: none;
-  padding: 9px;
-  cursor: pointer;
-  min-height: 50px;
-
-  &:hover {
-    background-color: #9277ff;
-  }
-}
-
-.__icon {
-  height: 32px;
-  width: 32px;
-  border-radius: 9999px;
-  background-color: white;
-
-  & svg {
-    color: #7c5dfa;
-  }
-}
-
-.__label {
-  height: 15px;
-  padding: 0 15px 0 15px;
-
-  font-family: "Spartan", sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  letter-spacing: -0.25px;
-
-  color: white;
-}
-</style>
