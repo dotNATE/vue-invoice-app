@@ -41,7 +41,7 @@ defineProps({
     height: 100%;
     opacity: 0.05;
     z-index: -1;
-    background: #33d69f;
+    border-radius: 8px;
   }
 }
 
