@@ -4,12 +4,17 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
+  @include themed() {
+    color: t("text");
+  }
 
   & .__header {
     margin-bottom: 0;
   }
 
   & .__sub-header {
-    color: $subtitle_light;
+    @include themed() {
+      color: t("subtitle");
+    }
   }
 }

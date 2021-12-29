@@ -5,6 +5,7 @@ export default createStore({
   state: {
     isLoading: false,
     invoices: [],
+    darkModeActive: false,
   },
   mutations: {
     SET_LOADING_STATUS(state, status: boolean): void {
@@ -12,6 +13,9 @@ export default createStore({
     },
     SET_INVOICES(state, payload): void {
       state.invoices = payload;
+    },
+    TOGGLE_DARK_MODE(state): void {
+      state.darkModeActive = !state.darkModeActive;
     },
   },
   actions: {
@@ -27,6 +31,9 @@ export default createStore({
 
           console.log(err);
         });
+    },
+    toggleTheme(context) {
+      context.commit("TOGGLE_DARK_MODE");
     },
   },
   modules: {},

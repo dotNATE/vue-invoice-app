@@ -1,6 +1,8 @@
 .invoice {
+  @include themed() {
+    background-color: t("bg-invoice");
+  }
   display: grid;
-  background-color: white;
   border-radius: 6px;
   border: 2px solid transparent;
   cursor: pointer;
@@ -13,44 +15,72 @@
     "date . status"
     "amount . status";
 
-  & .name {
+  & .__id {
+    @include themed() {
+      color: t("text");
+    }
+
+    & span {
+      @include themed() {
+        color: t("text2");
+      }
+    }
+  }
+
+  & .__date {
+    @include themed() {
+      color: t("text2");
+    }
+  }
+
+  & .__name {
+    @include themed() {
+      color: t("text3");
+    }
+
     text-align: end;
   }
 
-  & .status {
+  & .__total {
+    @include themed() {
+      color: t("text");
+    }
+  }
+
+  & .__status {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
   }
 
-  & .chevron {
+  & .__chevron {
     display: none;
   }
 
   &:hover {
-    border: 2px solid #7c5dfa;
+    border: 2px solid $primary;
   }
 }
 
 @media screen and (max-width: 767px) {
-  & .id {
+  & .__id {
     grid-area: id;
   }
 
-  & .date {
+  & .__date {
     grid-area: date;
     margin-bottom: -6px;
   }
 
-  & .name {
+  & .__name {
     grid-area: name;
   }
 
-  & .total {
+  & .__total {
     grid-area: amount;
   }
 
-  .status {
+  & .__status {
     grid-area: status;
   }
 }
@@ -62,12 +92,12 @@
     max-height: 72px;
     gap: 10px;
 
-    & .chevron {
+    & .__chevron {
       height: 39px;
       display: block;
     }
 
-    & .total {
+    & .__total {
       text-align: end;
     }
   }

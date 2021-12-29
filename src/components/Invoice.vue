@@ -34,17 +34,17 @@ const formatDate = (value: string): string => {
 
 <template>
   <div class="invoice">
-    <h3 class="small id"><span class="gray">#</span>{{ invoice.id }}</h3>
-    <p class="gray date">Due {{ formatDate(invoice.paymentDue) }}</p>
-    <p class="gray name">{{ invoice.clientName }}</p>
-    <h3 class="small total">{{ formatToGBP(invoice.total) }}</h3>
-    <div class="status">
+    <h3 class="small __id"><span>#</span>{{ invoice.id }}</h3>
+    <p class="__date">Due {{ formatDate(invoice.paymentDue) }}</p>
+    <p class="__name">{{ invoice.clientName }}</p>
+    <h3 class="small __total">{{ formatToGBP(invoice.total) }}</h3>
+    <div class="__status">
       <StatusPill :status="invoice.status" />
     </div>
     <svg
       viewBox="-15 -15 40 40"
       xmlns="http://www.w3.org/2000/svg"
-      class="chevron"
+      class="__chevron"
     >
       <path
         d="M1 1l4 4-4 4"

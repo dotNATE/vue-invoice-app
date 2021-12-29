@@ -15,7 +15,9 @@
     margin: 0 auto;
 
     & p {
-      color: #888eb0;
+      @include themed() {
+        color: t("subtitle");
+      }
     }
   }
 }

@@ -1,5 +1,6 @@
 @import "./btn";
 @import "./colors";
+@import "./color-themes";
 @import "./header";
 @import "./invoice";
 @import "./invoice-container";
@@ -12,10 +13,13 @@
   box-sizing: border-box;
 }
 
-#app {
+.root {
+  @include themed() {
+    background-color: t("bg");
+  }
+
   display: flex;
   flex-direction: column;
-  background-color: $bg_light;
   height: 100vh;
 }
 
@@ -24,7 +28,7 @@ body {
 }
 
 @media screen and (min-width: 1280px) {
-  #app {
+  .root {
     flex-direction: row;
   }
 }
