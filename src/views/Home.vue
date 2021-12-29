@@ -1,14 +1,34 @@
+<script setup lang="ts">
+import { computed } from "vue";
+import { useStore } from "vuex";
+
+import Button from "@/components/buttons/Button.vue";
+import Invoice from "@/components/Invoice.vue";
+
+const store = useStore();
+
+const invoices = computed(() => {
+  return store.state.invoices;
+});
+
+const numOfInvoices = computed(() => {
+  return invoices.value.length;
+});
+
+const invoiceCountMessage = computed(() => {
+  return numOfInvoices.value
+    ? `There are ${numOfInvoices.value} invoices`
+    : "No invoices";
+});
+</script>
+
 <template>
   <main>
     <header>
       <div>
         <h1 class="__header">Invoices</h1>
         <p class="__sub-header">
-          {{
-            numOfInvoices
-              ? `There are ${numOfInvoices} invoices`
-              : "No invoices"
-          }}
+          {{ invoiceCountMessage }}
         </p>
       </div>
       <Button label="New Invoice" :icon="true" />
@@ -30,35 +50,3 @@
     </div>
   </main>
 </template>
-
-<script lang="ts">
-import { computed, defineComponent } from "vue";
-import { useStore } from "vuex";
-
-import Button from "@/components/buttons/Button.vue";
-import Invoice from "@/components/Invoice.vue";
-
-export default defineComponent({
-  name: "Home",
-  setup() {
-    const store = useStore();
-
-    const invoices = computed(() => {
-      return store.state.invoices;
-    });
-
-    const numOfInvoices = computed(() => {
-      return invoices.value.length;
-    });
-
-    return {
-      invoices,
-      numOfInvoices,
-    };
-  },
-  components: {
-    Button,
-    Invoice,
-  },
-});
-</script>

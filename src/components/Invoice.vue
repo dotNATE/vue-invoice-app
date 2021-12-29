@@ -56,9 +56,3 @@ const formatDate = (value: string): string => {
     </svg>
   </div>
 </template>
-
-<style scoped lang="scss">
-.gray {
-  color: #7e88c3;
-}
-</style>
