@@ -3,7 +3,13 @@
     <header>
       <div>
         <h1 class="__header">Invoices</h1>
-        <p class="__sub-header">There are {{ numOfInvoices }} invoices</p>
+        <p class="__sub-header">
+          {{
+            numOfInvoices
+              ? `There are ${numOfInvoices} invoices`
+              : "There are no invoices"
+          }}
+        </p>
       </div>
       <Button label="New Invoice" :icon="true" />
     </header>
@@ -14,6 +20,14 @@
         :key="invoice.id"
       />
     </section>
+    <div class="empty" v-else>
+      <img src="@/assets/illustration-empty.svg" alt="no invoices" />
+      <h2>There is nothing here</h2>
+      <div>
+        <p>Create an invoice by clicking the</p>
+        <p><span class="bold">New Invoice</span> button and get started</p>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -49,12 +63,30 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped lang="scss">
 section {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
 
   border-radius: 8px;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 341px;
+  margin: 0 auto;
+
+  & p {
+    color: #888eb0;
+  }
+}
+
+.bold {
+  font-weight: 700;
 }
 </style>
