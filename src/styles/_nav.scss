@@ -48,10 +48,15 @@
 #theme-select {
   padding: 26px 31.5px;
   cursor: pointer;
+  fill: #7e88c3;
 
-  & img {
+  & svg {
     height: 20px;
     width: 20px;
+
+    &:hover {
+      fill: #dfe3fa;
+    }
   }
 }
 
